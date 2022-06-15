@@ -7,7 +7,7 @@ namespace ZatcaQrcode
     public static class QR
     {
         /// <summary>
-        /// Get QR text for zatca invoice TLV encoded.
+        /// Get QR text for ZATCA invoice TLV encoded.
         /// </summary>
         /// <param name="model">QR code data parameter</param>
         /// <returns>QR code base64 TLV encoded string</returns>
@@ -30,7 +30,7 @@ namespace ZatcaQrcode
 
 
         /// <summary>
-        /// Get QR text for zatca invoice TLV encoded.
+        /// Get QR text for ZATCA invoice TLV encoded.
         /// </summary>
         /// <param name="tags">Ordered list of QR tags</param>
         /// <returns>QR code base64 TLV encoded string</returns>
@@ -49,7 +49,8 @@ namespace ZatcaQrcode
             {
                 if (!string.IsNullOrEmpty(tags[i]))
                 {
-                    _ = contact.Append(GetValue((i + 1).ToString(), tags[i]));
+                    var tagValue = GetValue((i + 1).ToString(), tags[i]);
+                    _ = contact.Append(tagValue);
                 }
             }
             return contact.ToString();
